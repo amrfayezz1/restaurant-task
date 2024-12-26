@@ -1,0 +1,265 @@
+/* General Styles */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Lora', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fefaf3;
+    color: #333333;
+}
+
+h1,
+h2,
+h3 {
+    text-align: center;
+    margin: 20px 0;
+    font-weight: 600;
+}
+
+p,
+ul,
+li {
+    font-weight: 400;
+}
+
+/* Header Banner */
+.center-section {
+    background: url('../imgs/bg.jpg') no-repeat center/cover;
+    color: #ffffff;
+    text-align: center;
+    /* padding: 100px 20px; */
+    position: relative;
+    min-height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.center-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.center-section .center-text {
+    position: relative;
+    z-index: 2;
+}
+
+.center-section a {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: block;
+    width: fit-content;
+    padding: 10px;
+    background: inherit;
+    color: #ffffff;
+    z-index: 2;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background 0.3s;
+    text-decoration: none;
+}
+
+/* Services Section */
+.services {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #f7f3e9;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 40px;
+    width: 80vw;
+    min-width: 220px;
+    margin: auto;
+}
+
+.card {
+    width: 260px;
+    border-radius: 10px;
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    background: #b76e79;
+    display: flex;
+    flex-direction: column;
+}
+
+.card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.card button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background: inherit;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.card:hover {
+    background: #6e2325;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Modals */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+    transform: translateY(-50px);
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+}
+
+.modal-content .close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #8a2b2d;
+}
+
+.modal-content img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.modal-content .book-now {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #8a2b2d;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.modal-content .book-now:hover {
+    background: #6e2325;
+}
+
+@keyframes fadeIn {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Custom Occasion Section */
+.custom-occasion {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    padding: 40px 0;
+    /* background: #f7f3e9; */
+    gap: 40px;
+    flex-wrap: wrap;
+    width: 80vw;
+    min-width: 300px;
+    margin: auto;
+    flex-wrap: wrap;
+}
+
+
+.content h2,
+.content p {
+    text-align: left;
+}
+
+.custom-occasion .content {
+    flex: 1;
+    min-width: 250px;
+}
+
+.custom-occasion .form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    flex: 2;
+    min-width: 250px;
+}
+
+.custom-occasion input,
+.custom-occasion textarea,
+.custom-occasion button {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    resize: none;
+    max-width: -webkit-fill-available;
+}
+
+.custom-occasion button,
+.center-section a {
+    background: #8a2b2d;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.custom-occasion button:hover,
+.center-section a:hover {
+    background: #6e2325;
+    color: #ffffff;
+}
+
+#success-modal img {
+    width: 200px;
+}

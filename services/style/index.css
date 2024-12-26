@@ -1,0 +1,198 @@
+/* General Styles */
+body {
+    font-family: 'Lora', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fefaf3;
+    color: #333;
+    line-height: 1.6;
+}
+
+h1,
+h2 {
+    text-align: center;
+    margin: 20px 0;
+}
+
+h1,
+h2,
+h3 {
+    font-weight: 600;
+}
+
+p,
+ul,
+li {
+    font-weight: 400;
+}
+
+/* Header Banner */
+.header-banner {
+    background: url('../imgs/bg.jpg') no-repeat center/cover;
+    background-position: center top;
+    color: #fff;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+    position: relative;
+}
+
+.header-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.header-banner .banner-text {
+    position: relative;
+    z-index: 2;
+}
+
+.header-banner h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.header-banner p {
+    font-size: 1.2rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Services Section */
+.services {
+    padding: 40px 20px;
+    background: #fff8e1;
+    text-align: center;
+}
+
+.services h2 {
+    color: #8a2b2d;
+    margin-bottom: 30px;
+}
+
+.service-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.card {
+    width: 300px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card h3 {
+    font-size: 1.5rem;
+    margin: 15px 0 10px;
+    color: #8a2b2d;
+}
+
+.card p {
+    padding: 0 15px;
+    font-size: 1rem;
+    color: #555;
+}
+
+.card button {
+    display: block;
+    width: calc(100% - 30px);
+    margin: 15px auto;
+    padding: 10px 20px;
+    background: #8a2b2d;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.card button:hover {
+    background: #6e2325;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.modal-content .close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #8a2b2d;
+}
+
+.modal-content img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.modal-content p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

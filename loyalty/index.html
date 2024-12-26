@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loyalty Program</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style/index.css">
+</head>
+
+<body>
+    <!-- Header Banner -->
+    <section class="header-banner">
+        <div class="banner-text">
+            <h1>Loyalty Program</h1>
+            <p>Rewards for your loyalty and love for our dining experience.</p>
+        </div>
+    </section>
+
+    <!-- In-Kind Benefits Section -->
+    <section class="in-kind-benefits">
+        <h2>1. In-Kind Benefits</h2>
+        <ul>
+            <li>Free appetizers/desserts after a certain number of visits.</li>
+            <li>Exclusive invites to special tasting events.</li>
+            <li>Priority seating for loyal customers.</li>
+            <li>Discounted meals for frequent diners.</li>
+        </ul>
+    </section>
+
+    <!-- Gift Cards Section -->
+    <section class="gift-cards">
+        <h2>2. Gift Cards</h2>
+        <ul>
+            <li>A $50 gift card provides a $5 bonus card.</li>
+            <li>Loyalty points earned when using a gift card.</li>
+            <li>Gift cards redeemable for in-kind benefits, such as free items.</li>
+        </ul>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta">
+        <p>Join our Loyalty Program today and start enjoying exclusive rewards!</p>
+        <button onclick="openEmailModal()">Sign Up Now</button>
+    </section>
+
+    <!-- Email Modal -->
+    <div id="email-modal" class="modal" onclick="closeEmailModal(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="close" onclick="closeEmailModal(event)">&times;</span>
+            <h3>Stay Updated!</h3>
+            <p>Enter your email to stay tuned for our loyalty program updates:</p>
+            <input type="email" id="email-input" placeholder="Enter your email" required>
+            <button onclick="submitEmail()">Submit</button>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="modal" onclick="closeSuccessModal(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="close" onclick="closeSuccessModal(event)">&times;</span>
+            <h3>Thank You!</h3>
+            <img src="imgs/success.gif" alt="Success">
+            <p>Your request has been submitted successfully. We will contact you soon!</p>
+        </div>
+    </div>
+
+    <script>
+        function openEmailModal() {
+            const modal = document.getElementById('email-modal');
+            modal.style.display = 'flex';
+        }
+
+        function closeEmailModal(event) {
+            const modal = document.getElementById('email-modal');
+            modal.style.display = 'none';
+        }
+
+        function submitEmail() {
+            const email = document.getElementById('email-input').value;
+            if (email) {
+                const emailModal = document.getElementById('email-modal');
+                emailModal.style.display = 'none';
+
+                const successModal = document.getElementById('success-modal');
+                successModal.style.display = 'flex';
+            } else {
+                alert('Please enter a valid email address.');
+            }
+        }
+
+        function closeSuccessModal(event) {
+            const modal = document.getElementById('success-modal');
+            modal.style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>

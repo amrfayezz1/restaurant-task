@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Events</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style/index.css">
+</head>
+
+<body>
+    <!-- Center Section with Background Image -->
+    <section class="center-section">
+        <div class="center-text">
+            <h1>Make Every Moment Special with Us</h1>
+            <p>Let us host your next big celebration!</p>
+        </div>
+        <a href="#form">Book Now</a>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <h2>Celebrate Your Way</h2>
+        <div class="cards">
+            <div class="card birthday" onclick="openModal('birthday')">
+                <h3>Birthday Party</h3>
+                <img src="imgs/birthday.jpg" alt="Birthday Party">
+                <button>Read More</button>
+            </div>
+            <div class="card wedding" onclick="openModal('wedding')">
+                <h3>Wedding Outing</h3>
+                <img src="imgs/wedding.jpg" alt="Wedding Outing">
+                <button>Read More</button>
+            </div>
+            <div class="card date" onclick="openModal('date')">
+                <h3>Date Nights</h3>
+                <img src="imgs/date.jpg" alt="Date Nights">
+                <button>Read More</button>
+            </div>
+            <div class="card graduation" onclick="openModal('graduation')">
+                <h3>Graduation</h3>
+                <img src="imgs/graduation.jpg" alt="Graduations">
+                <button>Read More</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Template -->
+    <div id="modal" class="modal" onclick="closeModal(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="close" onclick="closeModal(event)">&times;</span>
+            <h3 id="modal-title"></h3>
+            <img id="modal-image" src="" alt="" style="width:100%; margin-bottom:15px;">
+            <p id="modal-description"></p>
+            <a id="modal-link" href="" class="book-now">Book Now</a>
+        </div>
+    </div>
+
+    <!-- Custom Occasion Form Section -->
+    <section class="custom-occasion">
+        <div class="content">
+            <h2>Have a Unique Occasion?</h2>
+            <p>We’re here to make your unique celebration special! Tell us about it, and we’ll make it happen.</p>
+        </div>
+        <form class="form" id="form" onsubmit="handleSubmit(event)">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required placeholder="eg: John Doe">
+
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" required placeholder="eg: 01234567890">
+
+            <label for="description">Occasion Description</label>
+            <textarea id="description" name="description" rows="4" required></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="modal" onclick="closeSuccessModal(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="close" onclick="closeSuccessModal()">&times;</span>
+            <h3>Thank You!</h3>
+            <img src="imgs/success.gif" alt="Success">
+            <p>Your request has been submitted successfully. We will contact you soon!</p>
+        </div>
+    </div>
+
+    <script>
+        function openModal(type) {
+            const modal = document.getElementById('modal');
+            const title = document.getElementById('modal-title');
+            const description = document.getElementById('modal-description');
+            const image = document.getElementById('modal-image');
+            const link = document.getElementById('modal-link');
+
+            const content = {
+                birthday: {
+                    title: 'Birthday Party',
+                    description: 'Celebrate your special day with customized decorations, a personalized menu, and our top-tier service. Make your birthday truly unforgettable!',
+                    image: 'imgs/birthday.jpg',
+                    link: 'reservation.html?occasion=birthday'
+                },
+                wedding: {
+                    title: 'Wedding Outing',
+                    description: 'Celebrate your big day with elegance, charm, and personalized setups to make it unforgettable.',
+                    image: 'imgs/wedding.jpg',
+                    link: 'reservation.html?occasion=wedding'
+                },
+                date: {
+                    title: 'Date Nights',
+                    description: 'Romantic setups and fine dining for a night you and your partner will always remember.',
+                    image: 'imgs/date.jpg',
+                    link: 'reservation.html?occasion=date'
+                },
+                graduation: {
+                    title: 'Graduations',
+                    description: 'Toast to success with a classy celebration and tailored services to make the moment memorable.',
+                    image: 'imgs/graduation.jpg',
+                    link: 'reservation.html?occasion=graduation'
+                }
+            };
+
+            modal.style.display = 'flex';
+            title.innerText = content[type].title;
+            description.innerText = content[type].description;
+            image.src = content[type].image;
+            link.href = content[type].link;
+        }
+
+        function closeModal(event) {
+            const modal = document.getElementById('modal');
+            modal.style.display = 'none';
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            const successModal = document.getElementById('success-modal');
+            successModal.style.display = 'flex';
+            event.target.reset();
+        }
+
+        function closeSuccessModal(event) {
+            const successModal = document.getElementById('success-modal');
+            successModal.style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>

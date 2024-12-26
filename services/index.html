@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style/index.css">
+</head>
+
+<body>
+    <!-- Header Banner -->
+    <section class="header-banner">
+        <div class="banner-text">
+            <h1>Our Services</h1>
+            <p>Explore the wide range of services we offer to make your experience unforgettable.</p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <h2>Our Offerings</h2>
+        <div class="service-cards">
+            <div class="card catering">
+                <img src="imgs/catering.jpg" alt="Catering Service">
+                <h3>Catering</h3>
+                <p>We provide top-notch catering services for your special events.</p>
+                <button onclick="showServiceDetails('catering')">Read More</button>
+            </div>
+            <div class="card delivery">
+                <img src="imgs/delivery.jpg" alt="Delivery Service">
+                <h3>Delivery</h3>
+                <p>Enjoy your favorite meals delivered to your doorstep.</p>
+                <button onclick="showServiceDetails('delivery')">Read More</button>
+            </div>
+            <div class="card dine-in">
+                <img src="imgs/dine-in.jpg" alt="Dine-In Service">
+                <h3>Dine-In</h3>
+                <p>Experience exceptional dining in a cozy ambiance.</p>
+                <button onclick="showServiceDetails('dinein')">Read More</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Details Modal -->
+    <div id="service-modal" class="modal" onclick="closeServiceModal(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="close" onclick="closeServiceModal(event)">&times;</span>
+            <h3 id="modal-title"></h3>
+            <img id="modal-image" src="" alt="Service Image">
+            <p id="modal-description"></p>
+        </div>
+    </div>
+
+    <script>
+        function showServiceDetails(service) {
+            const modal = document.getElementById('service-modal');
+            const title = document.getElementById('modal-title');
+            const image = document.getElementById('modal-image');
+            const description = document.getElementById('modal-description');
+
+            const serviceDetails = {
+                catering: {
+                    title: 'Catering Service',
+                    image: 'imgs/catering.jpg',
+                    description: 'Our catering service offers a variety of menu options tailored to your needs, ensuring your event is a success.'
+                },
+                delivery: {
+                    title: 'Delivery Service',
+                    image: 'imgs/delivery.jpg',
+                    description: 'Enjoy the convenience of having your favorite meals delivered to your home or office with just a few clicks.'
+                },
+                dinein: {
+                    title: 'Dine-In Service',
+                    image: 'imgs/dine-in.jpg',
+                    description: 'Relax and enjoy a fine dining experience with top-quality food and excellent service.'
+                }
+            };
+
+            const details = serviceDetails[service];
+            title.innerText = details.title;
+            image.src = details.image;
+            description.innerText = details.description;
+
+            modal.style.display = 'flex';
+        }
+
+        function closeServiceModal(event) {
+            const modal = document.getElementById('service-modal');
+            modal.style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>
